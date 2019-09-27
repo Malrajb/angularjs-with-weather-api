@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="WeatherApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="WeatherApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="WeatherApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns:ng="http://angularjs.org" lang="en" id="ng-app" ng-app="WeatherApp" class="no-js"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AngularJS with Weather API</title>	
+  <meta name="description" content="Weather API using AngularJS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">  
+  <link rel="stylesheet" href="assets/css/style.css" />
+  
+</head>
+
+<body ng-app='WeatherApp'>
+
+  <div ng-controller="main as vm">
+    <h1>{{vm.City}} Weather</h1>
+
+    <div ng-include="'weather/weatherDisplay.html'" ng-show="vm.ValidDataLoaded"></div>
+
+    <p class="error">
+      {{vm.error}}
+    </p>
+
+    <form name="weatherForm">       
+      <div>
+		<span>Select City <select ng-model="vm.query" ng-options="x for x in vm.cities" required></select> 
+		<input type="submit" value="Find Weather" ng-click="vm.Search()" />
+		<br/><span style="color:red"  ng-show="vm.hasError">Please select anyone of the city</span> 
+		
+	</div>
+    </form>
+  </div>
+  <script src="assets/js/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="weather/weatherService.js"></script>
+</body>
+
+</html>
