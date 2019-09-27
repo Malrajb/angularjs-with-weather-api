@@ -14,7 +14,7 @@ git clone https://github.com/Malrajb/angularjs-with-weather-api/
 
 	. Ex: C:\xampp\htdocs\angularjs-with-weather-api
 
-	. No database connection needed. The dynamic data retirved from json file content inside 'mock' folder	  
+	. No database connection needed.
 
 	. No database operations held in this application. Because the main objective of the repository is building weather-api application using angularjs 	
 
